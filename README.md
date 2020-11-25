@@ -1,5 +1,5 @@
 # Agent
-Exemplo uso de **Agent** em `Elixir`.
+Exemplo de uso de **Agent** em `Elixir`.
 
 ![alt text](https://github.com/wagncarv/Agent/blob/main/elixir.jpg)
 
