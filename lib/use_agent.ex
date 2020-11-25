@@ -2,12 +2,20 @@ defmodule UseAgent do
     import Agente
 
     def init do
-        IO.puts "function: init/0"
-        Agente.start_link("abc123")
+        Agente.start_link(nil)
+    end
+
+    def value do
+        Agente.value()
+        |> Map.get(:cursor)
+    end
+
+    def update(value) do
+        Agente.update(value)
+        {:Ok, "value updated to #{value}"}
     end
 
     def change_state do
-        IO.puts "function: change_state/0"
         init()
         IO.puts "===================="
         ["def456", "ghi789", "jkl101", "mno121", "pqr131", "stu141", "vwx151", "yza151"]
@@ -19,7 +27,7 @@ defmodule UseAgent do
        IO.puts "Valor antigo: #{Map.get(Agente.value(), :cursor)}"
        Agente.update(value)
        IO.puts "Novo valor: #{Map.get(Agente.value(), :cursor)}"
-       Process.sleep(2000)
+       Process.sleep(1000)
        IO.puts "===================="
     end
 end
