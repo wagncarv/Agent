@@ -1,6 +1,6 @@
 # Agente
 
-Exemplo uso de **Agent** em >Elixir.
+Exemplo uso de **Agent** em `Elixir`.
 
 ## Installation
 
