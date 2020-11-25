@@ -1,4 +1,4 @@
-# Agente
+# Agent
 
 Exemplo uso de **Agent** em `Elixir`.
 
