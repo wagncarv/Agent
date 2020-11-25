@@ -15,6 +15,17 @@ iex> Agente.value()
 %{cursor: "xxx001"}
 ```
 
+## Configuração
+Adicione a configuração abaixo à sua aplicação para incializar o ```Agent```:
+```elixir
+  def application do
+    [
+      extra_applications: [:logger],
+      mod: {Agente, %{cursor: :normal}}
+    ]
+  end
+```
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
