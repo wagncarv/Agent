@@ -1,6 +1,6 @@
-# Agente
+# Agent
 
-**TODO: Add description**
+Exemplo uso de **Agent** em `Elixir`.
 
 ## Installation
 
