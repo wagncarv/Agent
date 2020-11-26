@@ -9,11 +9,15 @@ defmodule Agente do
     Agent.start_link(fn -> %{cursor: initial_value} end, name: __MODULE__)
   end
 
-  def value do
+  def value(key \\ :cursor) do
     Agent.get(__MODULE__, & &1)
   end
 
-  def update(value) do
-    Agent.update(__MODULE__, & Map.put(&1, :cursor, value))
+  def update(value, key) do
+    Agent.update(__MODULE__, & Map.put(&1, key, value))
+  end
+
+  def new(key, value) do
+    Agent.update(__MODULE__, & Map.put_new(&1, key, value))
   end
 end

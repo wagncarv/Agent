@@ -1,22 +1,21 @@
 defmodule UseAgent do
-    import Agente
 
-    def init do
-        Agente.start_link(nil)
-    end
-
-    def value do
+    def value(key \\ :cursor) do
         Agente.value()
-        |> Map.get(:cursor)
+        |> Map.get(key)
     end
 
-    def update(value) do
-        Agente.update(value)
-        {:Ok, "value updated to #{value}"}
+    def update(value, key) do
+        Agente.update(value, key)
+        {:ok, "value updated to #{value}"}
+    end
+
+    def new(key, value) do
+        Agente.update(value, key)
+        {:ok, "new value added"}
     end
 
     def change_state do
-        init()
         IO.puts "===================="
         ["def456", "ghi789", "jkl101", "mno121", "pqr131", "stu141", "vwx151", "yza151"]
         |> Enum.map(&do_change/1)
