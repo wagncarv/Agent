@@ -1,7 +1,7 @@
 # Agent
 Implementação uso de **Agent** em `Elixir`.
 
-![alt-text](elixir_logo2.jpg) ![alt-text](elixir_logo.jpg)
+![alt-text](elixir_logo2.jpg)
 
 ## Exemplos de Uso
 **Atualizar valor**:
