@@ -1,18 +1,62 @@
 # Agent
-Exemplo de uso de **Agent** em `Elixir`.
+Implementação uso de **Agent** em `Elixir`.
 
-![alt text](https://github.com/wagncarv/Agent/blob/main/elixir.jpg)
+![alt-text](elixir_logo2.jpg) ![alt-text](elixir_logo.jpg)
 
 ## Exemplos de Uso
-**Atualizar valor:**
+**Atualizar valor**:
 ```elixir
-iex> Agente.update("xxx001")
-:ok
+ iex> Agente.update("xxx001")
+ :ok
 ```
-**Buscar valor atual:**
+**Exibir estado atual**:
 ```elixir
-iex> Agente.value()
-%{cursor: "xxx001"}
+ iex> Agente.value()
+ %{cursor: "xxx001"}
+
+ iex> Agente.value(:cursor)
+ %{cursor: "xxx001"}
+```
+**Nova chave - valor**:
+```elixir
+ iex> Agente.new(:index, "atualizacao")
+ :ok
+ iex> Agente.value()
+%{cursor: :normal, index: "atualizacao"}
+```
+
+**Incrementar um valor**:
+```elixir
+ iex> Agente.increment
+ :ok
+ iex> Agente.value()
+%{cursor: :normal, sum: 1}
+
+iex> Agente.increment(5)
+:ok
+iex> Agente.value
+%{cursor: :normal, sum: 5}
+```
+
+**Mesclar valores**:
+```elixir
+ iex> map = %{nome: "John Doe", last_name: "Smith", skills: [1, 2, 6]}
+ iex> Agente.merge(map)
+ %{cursor: :normal, last_name: "Smith", nome: "John Doe", skills: [1, 2, 6]}
+```
+
+**Excluir um valor**:
+```elixir
+ %{cursor: "novo valor hh", nova: "outro valor"}
+ iex> Agente.delete(:cursor)
+ %{nova: "outro valor"}
+```
+
+**Excluir muitos valores**:
+```elixir
+ %{foo: "foo bar", nova: "outro valor"}
+ iex> Agente.drop([:foo, :nova])
+ %{}
 ```
 
 ## Configuração
@@ -26,19 +70,19 @@ Adicione a configuração abaixo à sua aplicação para incializar o ```Agent``
   end
 ```
 
-## Installation
+## Instalação
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `agente` to your list of dependencies in `mix.exs`:
+Se [disponível em Hex](https://hex.pm/docs/publish), o pacote poderá ser instalado
+adicionando-se `agente` à sua lista de dependências em `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:agente, "~> 0.1.0"}
+    {:agente, "~> 0.1.2"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/agente](https://hexdocs.pm/agente).
+A documentação pode ser gerada com [ExDoc](https://github.com/elixir-lang/ex_doc)
+e publicada em [HexDocs](https://hexdocs.pm). Após publicação, o ***docs*** poderá
+ser encontrado em [https://hexdocs.pm/agente](https://hexdocs.pm/agente).
