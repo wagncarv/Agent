@@ -1,15 +1,15 @@
 # Agent
-Implementação uso de **Agent** em `Elixir`.
+Implementation using ** Agent ** in `Elixir`.
 
 ![alt-text](elixir_logo2.jpg)
 
-## Exemplos de Uso
-**Atualizar valor**:
+## Use
+**Update value**:
 ```elixir
  iex> Agente.update("xxx001")
  :ok
 ```
-**Exibir estado atual**:
+**Show current status**:
 ```elixir
  iex> Agente.value()
  %{cursor: "xxx001"}
@@ -17,7 +17,7 @@ Implementação uso de **Agent** em `Elixir`.
  iex> Agente.value(:cursor)
  %{cursor: "xxx001"}
 ```
-**Nova chave - valor**:
+**New key - value**:
 ```elixir
  iex> Agente.new(:index, "atualizacao")
  :ok
@@ -25,7 +25,7 @@ Implementação uso de **Agent** em `Elixir`.
 %{cursor: :normal, index: "atualizacao"}
 ```
 
-**Incrementar um valor**:
+**Add a value**:
 ```elixir
  iex> Agente.increment
  :ok
@@ -38,29 +38,29 @@ iex> Agente.value
 %{cursor: :normal, sum: 5}
 ```
 
-**Mesclar valores**:
+**Merge values**:
 ```elixir
  iex> map = %{nome: "John Doe", last_name: "Smith", skills: [1, 2, 6]}
  iex> Agente.merge(map)
  %{cursor: :normal, last_name: "Smith", nome: "John Doe", skills: [1, 2, 6]}
 ```
 
-**Excluir um valor**:
+**Delete a value**:
 ```elixir
  %{cursor: "novo valor hh", nova: "outro valor"}
  iex> Agente.delete(:cursor)
  %{nova: "outro valor"}
 ```
 
-**Excluir muitos valores**:
+**Delete too many values**:
 ```elixir
  %{foo: "foo bar", nova: "outro valor"}
  iex> Agente.drop([:foo, :nova])
  %{}
 ```
 
-## Configuração
-Adicione a configuração abaixo à sua aplicação para incializar o ```Agent```:
+## Configuration
+Add the configuration below to your application to start the ```Agent```:
 ```elixir
   def application do
     [
@@ -70,10 +70,10 @@ Adicione a configuração abaixo à sua aplicação para incializar o ```Agent``
   end
 ```
 
-## Instalação
+## Installation
 
-Se [disponível em Hex](https://hex.pm/docs/publish), o pacote poderá ser instalado
-adicionando-se `agente` à sua lista de dependências em `mix.exs`:
+If [available in Hex] (https://hex.pm/docs/publish), the package can be installed
+adding `agent` to your list of dependencies in` mix.exs`:
 
 ```elixir
 def deps do
@@ -83,6 +83,6 @@ def deps do
 end
 ```
 
-A documentação pode ser gerada com [ExDoc](https://github.com/elixir-lang/ex_doc)
-e publicada em [HexDocs](https://hexdocs.pm). Após publicação, o ***docs*** poderá
-ser encontrado em [https://hexdocs.pm/agente](https://hexdocs.pm/agente).
+Documentation can be generated with [ExDoc] (https://github.com/elixir-lang/ex_doc)
+and published in [HexDocs] (https://hexdocs.pm). After publication, *** docs *** may
+be found at [https://hexdocs.pm/agenteцtshttps://hexdocs.pm/agente).
