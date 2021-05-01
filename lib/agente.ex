@@ -13,13 +13,6 @@ defmodule Agente do
   end
 
   @doc """
-     Start application.
-  """
-  def start(initial_value, args) do
-    Agent.start_link(fn -> %{cursor: initial_value} end, name: __MODULE__)
-  end
-
-  @doc """
     Returns the current stored value(s).
   ## Example:
     ```
