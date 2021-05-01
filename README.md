@@ -85,4 +85,4 @@ end
 
 Documentation can be generated with [ExDoc] (https://github.com/elixir-lang/ex_doc)
 and published in [HexDocs] (https://hexdocs.pm). After publication, *** docs *** may
-be found at [https://hexdocs.pm/agenteцtshttps://hexdocs.pm/agente).
+be found at [https://hexdocs.pm/agente).
