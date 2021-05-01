@@ -2,26 +2,26 @@ defmodule Agente do
   use Agent
 
   @moduledoc """
-    Implementação de funções manipuladoras de estado utilizando o módulo Agent.
+    Implementation of state manipulative functions using the Agent module.
   """
 
   @doc """
-    Iniciar aplicação.
+    Start application.
   """
   def start_link(initial_value) do
     Agent.start_link(fn -> %{cursor: initial_value} end, name: __MODULE__)
   end
 
   @doc """
-    Iniciar aplicação.
+     Start application.
   """
   def start(initial_value, args) do
     Agent.start_link(fn -> %{cursor: initial_value} end, name: __MODULE__)
   end
 
   @doc """
-    Retorna o(s) valor(es) atual(ais) armazenados.
-  ## Exemplo:
+    Returns the current stored value(s).
+  ## Example:
     ```
     Agente.value(:cursor)
     ```
@@ -31,8 +31,8 @@ defmodule Agente do
   end
 
   @doc """
-    Insere o valor fornecido na chave no mapa.
-  ## Exemplo:
+   Inserts the value provided in the key on map.
+  ## Example:
   ```
    Agente.update(:cursor, "cccxxx")
   ```
@@ -41,9 +41,9 @@ defmodule Agente do
     Agent.update(__MODULE__, &Map.put(&1, key, value))
   end
 
-  @doc """
-    Insere o valor fornecido na chave, a menos que a chave de entrada já exista no mapa.
-  ## Exemplo:
+  @doc """   
+    Inserts the value provided in the key, unless the input key already exists on the map.
+  ## Example:
     ```
      Agente.new(:new, "cccxxx")
     ```
@@ -53,11 +53,11 @@ defmodule Agente do
   end
 
   @doc """
-    Mescla dois mapas em um.
-    Todas as chaves em map2 serão adicionadas a map1, substituindo qualquer uma existente
-    (ou seja, as chaves em map2 "têm precedência" sobre as de map1).
+    Merges two maps into one.
+    All keys in map2 will be added to map1, replacing any existing keys
+    (that is, the keys in map2 "take precedence" over those in map1).
 
-  ## Exemplo:
+  ## Example:
   ```
    Agente.merge(%{cursor: "cccxxx"})
   ```
@@ -67,9 +67,9 @@ defmodule Agente do
   end
 
   @doc """
-    Exclui a entrada no mapa para uma chave específica.
-    Se a chave não existir, retorna o mapa inalterado.
-  ## Exemplo:
+    Deletes the entry on the map for a specific key.
+    If the key does not exist, it returns the map unchanged.
+  ## Example:
     ```
      Agente.delete(:cursor)
     ```
@@ -79,9 +79,9 @@ defmodule Agente do
   end
 
   @doc """
-    Exclui as chaves fornecidas do mapa.
-    Se as chaves contêm chaves que não estão no mapa, elas são simplesmente ignoradas.
-  ## Exemplo:
+    Deletes the supplied keys from the map.
+    If the keys contain keys that are not on the map, they are simply ignored.
+  ## Example:
     ```
      Agente.drop([:foo, :bar])
     ```
@@ -91,9 +91,9 @@ defmodule Agente do
   end
 
   @doc """
-    Incrementa um valor ao total atual. Caso não seja passado o valor de incremento,
-    o valor padrão é 1.
-  ## Exemplo:
+    Increments a value to the current total. If the increment value is not passed,
+    the default value is 1.
+  ## Example:
     ```
      Agente.increment
      Agente.increment(2.)
